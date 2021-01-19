@@ -1,0 +1,186 @@
+<!--ADD to HTML File to work
+inside head
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function(){
+
+        $("#nav-placeholder").load("navbar.html");
+
+    });
+</script>
+
+inside body
+<div id="nav-placeholder"></div>
+-->
+
+
+<!--
+Sources for ICONS: https://material.io/resources/icons/?style=baseline
+
+Document on Mobile Screens: https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+-->
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+
+.sidebar a {
+    padding: 2px 8px 8px 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover, .sidebar a:active {
+    color: chartreuse;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+.material-icons,
+.icon-text {
+    vertical-align: middle;
+}
+
+.material-icons {
+    padding-bottom: 3px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 100px;
+}
+
+#NavHeader {
+    font-size: 16px;
+    color: #818181;
+    text-align: center;
+    border: none;
+    padding: none;
+    color: orange
+}
+
+#ES_logo{
+    padding-left: 2px;
+    height: 45px;
+    width: 45px;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media only screen  {
+/*    and (max-height: 450px)*/
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+
+
+
+</style>
+    
+<script>
+    
+
+    var mini = true;
+    var collapsed = false;
+    
+    function toggleSidebar() {
+        if (mini & !collapsed) {
+            console.log("opening sidebar");
+            document.getElementById("mySidebar").style.width = "310px";
+            this.mini = false;
+        } else if (!collapsed) {
+            console.log("closing sidebar");
+            document.getElementById("mySidebar").style.width = "50px";
+            this.mini = true;
+
+        }
+    }
+    
+    function hideSidebar(){
+        if (collapsed){
+            console.log("Logo Clicked");
+            document.getElementById("NavWrapper").style.visibility = "visible";
+            document.getElementById("mySidebar").style.backgroundColor = "#111";
+            collapsed = false;
+            this.mini = false;
+        }
+        else{
+            console.log("Logo Clicked");
+            document.getElementById("NavWrapper").style.visibility = "hidden";
+            document.getElementById("mySidebar").style.width = "50px";
+            document.getElementById("mySidebar").style.backgroundColor = "transparent";
+            this.mini = true;
+            this.collapsed = true;
+        }
+//        this.collapsed = !this.collapsed;
+    }
+    
+</script>
+
+<nav id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()" >
+    
+    <img id="ES_logo" src="ES_logo_mini.png" onclick="hideSidebar()">
+    <nav id="NavWrapper">
+        <div id="NavHeader">Menu</div>
+        
+
+        <!--Copy <a></a> tag to create another menu item-->
+
+        <a href="#"><i class="material-icons">info</i><span id="longest_icon" class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Prospects & Existing Customer</span></a>
+
+        <a href="#"><i class="material-icons">spa</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Dodge</a>
+
+        <a href="#"><i class="material-icons">monetization_on</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Prospect</a>
+
+        <a href="#"><i class="material-icons">search</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;View Prospect</a>
+
+        <a href="#"><i class="material-icons">build</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Prospect Actions</a>
+
+        <a href="#"><i class="material-icons">search</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Existing Customer Lookup</a>
+
+        <a href="#"><i class="material-icons">rule</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Existing Customer Actions</a>
+
+        <a href="#"><i class="material-icons">help</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Help</a>
+
+    </nav>
+    
+    
+    
+</nav>
+
+    
